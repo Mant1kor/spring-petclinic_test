@@ -1,4 +1,4 @@
 FROM openjdk
 COPY target/*.jar /
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "*.jar"] 
+ENTRYPOINT ["sh" "-c" "java -jar *.jar"]
