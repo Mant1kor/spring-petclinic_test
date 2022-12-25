@@ -74,10 +74,12 @@ resource "aws_security_group" "project1_sec_group" {
 
 # Create instance
 resource "aws_instance" "worker1" {
-  ami                    = "ami-05ff5eaef6149df49"
-  instance_type          = "t2.micro"
-  key_name               = "robot"
-  vpc_security_group_ids = [aws_security_group.project1_sec_group.id]
+  ami                         = "ami-05ff5eaef6149df49"
+  instance_type               = "t2.micro"
+  key_name                    = "robot"
+  vpc_security_group_ids      = [aws_security_group.project1_sec_group.id]
+  associate_public_ip_address = true
+  subnet_id                   = aws_subnet.main_subnet.id
 
   tags = {
     Name = "project-worker1"
