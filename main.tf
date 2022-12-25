@@ -74,10 +74,10 @@ resource "aws_key_pair" "robot" {
 
 # Create instance
 resource "aws_instance" "worker1" {
-  ami             = "ami-05ff5eaef6149df49"
-  instance_type   = "t2.micro"
-  key_name        = aws_key_pair.robot.key_name
-  security_groups = aws_security_group.project1_sec_group.id
+  ami                    = "ami-05ff5eaef6149df49"
+  instance_type          = "t2.micro"
+  key_name               = aws_key_pair.robot.key_name
+  vpc_security_group_ids = [aws_security_group.project1_sec_group.id]
 
   tags = {
     Name = "project-worker1"
