@@ -64,6 +64,7 @@ resource "aws_security_group" "project1_sec_group" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
+}
 
 # SSH public key
 resource "aws_key_pair" "robot" {
