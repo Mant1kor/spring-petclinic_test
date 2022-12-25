@@ -37,7 +37,7 @@ resource "aws_subnet" "main_subnet" {
 resource "aws_security_group" "project1_sec_group" {
   name        = "allow configuration and access"
   description = "Allow ssh for configuration and 8080 for access"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = aws_vpc.project1.id
 
   ingress {
     description      = "ssh access"
