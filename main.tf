@@ -67,16 +67,16 @@ resource "aws_security_group" "project1_sec_group" {
 }
 
 # SSH public key
-resource "aws_key_pair" "robot" {
-  key_name   = "robot"
-  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKl01HNCZCoXsxy0XB3v7xPKjQmoeZHry87APvFe7rS+ mykola.ronik@gmail.com"
-}
+#resource "aws_key_pair" "robot" {
+#  key_name   = "robot"
+#  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKl01HNCZCoXsxy0XB3v7xPKjQmoeZHry87APvFe7rS+ mykola.ronik@gmail.com"
+#}
 
 # Create instance
 resource "aws_instance" "worker1" {
   ami                    = "ami-05ff5eaef6149df49"
   instance_type          = "t2.micro"
-  key_name               = aws_key_pair.robot.key_name
+  key_name               = "robot"
   vpc_security_group_ids = [aws_security_group.project1_sec_group.id]
 
   tags = {
