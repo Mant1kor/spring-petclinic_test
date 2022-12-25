@@ -69,7 +69,7 @@ resource "aws_security_group" "project1_sec_group" {
 # SSH public key
 resource "aws_key_pair" "robot" {
   key_name   = "robot"
-  #public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKl01HNCZCoXsxy0XB3v7xPKjQmoeZHry87APvFe7rS+ mykola.ronik@gmail.com"
+  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKl01HNCZCoXsxy0XB3v7xPKjQmoeZHry87APvFe7rS+ mykola.ronik@gmail.com"
 }
 
 # Create instance
