@@ -24,6 +24,15 @@ resource "aws_vpc" "project1" {
   }
 }
 
+# Create gateway
+resource "aws_internet_gateway" "project1_gw" {
+  vpc_id = aws_vpc.project1.id
+
+  tags = {
+    Name = "project1_gw"
+  }
+}
+
 # Create subnet
 resource "aws_subnet" "main_subnet" {
   vpc_id            = aws_vpc.project1.id
