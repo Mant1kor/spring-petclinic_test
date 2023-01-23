@@ -43,6 +43,18 @@ resource "aws_subnet" "main_subnet" {
   }
 }
 
+# Add route outside
+resource "aws_route_table" "project1_rt" {
+  vpc_id = aws_vpc.project1.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.project1_gw.id
+  }
+  tags = {
+    Name = "project1_publicRouteTable"
+  }
+}
+
 # Create security group
 resource "aws_security_group" "project1_sec_group" {
   name        = "allow configuration and access"
