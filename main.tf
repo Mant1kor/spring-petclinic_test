@@ -55,6 +55,12 @@ resource "aws_route_table" "project1_rt" {
   }
 }
 
+# Map route table to subnet
+resource "aws_route_table_association" "project1_route_association" {
+  subnet_id      = aws_subnet.main_subnet.id
+  route_table_id = aws_route_table.project1_rt.id
+}
+
 # Create security group
 resource "aws_security_group" "project1_sec_group" {
   name        = "allow configuration and access"
