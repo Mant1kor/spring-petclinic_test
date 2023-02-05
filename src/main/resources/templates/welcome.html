@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
-  <script> 
-   n =  new Date();
-   y = n.getFullYear();
-   m = n.getMonth() + 1;
-   d = n.getDate();
-   document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-   </script>
 
   <body>
 
     <h2 th:text="#{welcome}">Welcome</h2>
     <h2>Mykola Ronik project, change #1</h2>
-    <p id="date"></p>
     <div class="row">
         <div class="col-md-12">
           <img class="img-responsive" src="../static/resources/images/pets.png" th:src="@{/resources/images/pets.png}"/>
